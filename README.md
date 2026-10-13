@@ -10,9 +10,13 @@ npx skills add combeenation/skills
 
 ## Skills
 
-| Skill                                                  | Purpose                                                              |
-| ------------------------------------------------------ | -------------------------------------------------------------------- |
-| [`combeenation-cpq`](skills/combeenation-cpq/SKILL.md) | Entry point for working on a configurator from a Custom Code project |
+| Skill                                                                      | Purpose                                                                  |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [`combeenation`](skills/combeenation/SKILL.md)                             | Entry point: links the project to its configurator, routes to the skills |
+| [`combeenation-hive`](skills/combeenation-hive/SKILL.md)                   | Hive, the rule language of configurators: model, syntax, traps           |
+| [`combeenation-custom-code`](skills/combeenation-custom-code/SKILL.md)     | Custom Code capabilities, SDK, tooling, and approved libraries           |
+| [`apply-coding-guidelines`](skills/apply-coding-guidelines/SKILL.md)       | Audit and fix code against the platform coding guidelines                |
+| [`update-project-description`](skills/update-project-description/SKILL.md) | Keep `.ai/project/` in sync with the code base                           |
 
 ## Authoring
 

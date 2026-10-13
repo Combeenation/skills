@@ -9,15 +9,15 @@ Keeps `.ai/project/` (`project.md` and `glossary.md`) accurate. It is the only p
 
 ## Rules
 
-- Edit only files in `.ai/project/`. Never edit the reference files of the `combeenation-cpq` or `apply-coding-guidelines` skills.
-- Do not restate platform behaviour, platform libraries, platform-wide coding rules or platform terms. Those belong in the references of the `combeenation-cpq` and `apply-coding-guidelines` skills. Link to them instead.
+- Edit only files in `.ai/project/`. Never edit the reference files of the `combeenation-custom-code` or `apply-coding-guidelines` skills.
+- Do not restate platform behaviour, platform libraries, platform-wide coding rules or platform terms. Those belong in the references of the `combeenation-custom-code` and `apply-coding-guidelines` skills. Link to them instead.
 - Separate what the code proves from what only a person knows. Never present an inference as a confirmed decision.
 - Describe patterns and point to files. Do not copy code into the description.
 - Write changes only after the user has confirmed the proposal.
 
 ## Steps
 
-1. Read `.ai/project/` and the platform references: `knowledge.md` and `glossary.md` of the `combeenation-cpq` skill, `coding-guidelines.md` of the `apply-coding-guidelines` skill.
+1. Read `.ai/project/` and the platform references: `knowledge.md` and `glossary.md` of the `combeenation-custom-code` skill, `coding-guidelines.md` of the `apply-coding-guidelines` skill.
 2. Scan the repository for facts relevant to each section of `.ai/project/project.md` and to the terms in `.ai/project/glossary.md`:
    - **Stack and versions:** `package.json`, `tsconfig.json`, `vite.config.js`, `eslint.config.mjs`.
    - **Structure and conventions:** the `src/` folder layout, file naming, hooks and component patterns.

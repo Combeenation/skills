@@ -4,7 +4,7 @@
 > Owner: Platform team  
 > Last verified: 2026-10-12
 
-Coding conventions that apply in every project. Project-specific conventions (stack, folder structure) belong in `.ai/project/project.md`. Platform capabilities and approved libraries are in `knowledge.md` of the `combeenation-cpq` skill.
+Coding conventions that apply in every project. Project-specific conventions (stack, folder structure) belong in `.ai/project/project.md`. Platform capabilities and approved libraries are in `knowledge.md` of the `combeenation-custom-code` skill.
 
 ## Naming
 

@@ -17,7 +17,7 @@ This document describes the organization's developer platform: its capabilities 
 ## Reference documentation
 
 - Combeenation platform: <https://docs.combeenation.com/>
-- Custom code SDK API: <https://custom-code.docs.combeenation.com/>
+- Custom code SDK API: <https://public-packages.docs.combeenation.com/custom-code-sdk/>
 - 3D viewer: <https://3dviewer.docs.combeenation.com/>
 
 Consult these when this file is silent. The entries below have not yet been checked against them.

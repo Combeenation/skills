@@ -1,6 +1,14 @@
 # Connect the Combeenation MCP server
 
-The server is configured per project, in the workspace MCP config `.vscode/mcp.json`. In VS Code, run "MCP: Open Workspace Folder MCP Configuration" to open it, and add:
+User-facing guide: https://docs.combeenation.com/docs/ai/mcp-server
+
+- Server URL: `https://portal.combeenation.com/mcp` (HTTP transport)
+- Auth: header `Authorization: Bearer <token>`, where `<token>` is a Combeenation API token. The user creates it in Combeenation ([docs](https://docs.combeenation.com/docs/integrations-and-api/integrations#bearer-token-authentication)).
+- A token belongs to one company. Use a token of the company listed in the project's `cbn.config.json`.
+
+## VS Code
+
+Configure the server per project in `.vscode/mcp.json`. The command "MCP: Open Workspace Folder MCP Configuration" opens it. Add:
 
 ```json
 {
@@ -8,14 +16,14 @@ The server is configured per project, in the workspace MCP config `.vscode/mcp.j
     {
       "type": "promptString",
       "id": "combeenation-api-token",
-      "description": "Combeenation API Key",
+      "description": "Combeenation API token",
       "password": true
     }
   ],
   "servers": {
     "cbn-mcp": {
-      "url": "https://127.0.0.1/mcp",
       "type": "http",
+      "url": "https://portal.combeenation.com/mcp",
       "headers": {
         "Authorization": "Bearer ${input:combeenation-api-token}"
       }
@@ -24,6 +32,19 @@ The server is configured per project, in the workspace MCP config `.vscode/mcp.j
 }
 ```
 
-VS Code prompts for the token when the server first starts and stores it securely, so the file holds no secret. The user gets their token from Combeenation ([docs.combeenation.com](https://docs.combeenation.com/docs/integrations-and-api/integrations#bearer-token-authentication)).
+VS Code prompts for the token when the server first starts and stores it securely, so the file holds no secret and may be committed.
 
-If the user's agent does not read `.vscode/mcp.json` or cannot prompt for input (for example VS Code's Agent Host, Claude Code, Cursor), add the same server to that agent's own MCP config. A literal token may only live in a file outside version control: a user-level config, or a project file listed in `.gitignore` and untracked with `git rm --cached`. If a token was ever committed, tell the user to revoke it; it stays in git history.
+If no prompt appears or authentication fails, replace `${input:combeenation-api-token}` with the literal token and drop the `inputs` block. The file now holds a secret. Before anything else, add `.vscode/mcp.json` to `.gitignore`, and if it is already tracked, run `git rm --cached .vscode/mcp.json`.
+
+## Other agents
+
+If the agent does not read `.vscode/mcp.json` or cannot prompt for input (for example VS Code's Agent Host, Claude Code, Cursor), add the same URL and header to that agent's own MCP config:
+
+- Preferred: a project-level config file that is listed in `.gitignore`.
+- Alternative: the agent's user-level config. It holds one token for all projects, so it does not work when the user works with several companies.
+
+## Rules
+
+- Never write a literal token into a file that git tracks. Check with `git check-ignore <file>` first.
+- If a token was ever committed, tell the user to revoke it and create a new one. It stays in git history even after removal.
+- After setup, confirm the Combeenation tools are available before continuing the task.
